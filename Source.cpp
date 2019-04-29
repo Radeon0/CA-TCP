@@ -1,16 +1,11 @@
-/*
-Author: Pindrought
-Date: 11/13/2015
-This is the solution for the client that you should have at the end of tutorial 2.
-*/
 
 //Disable inet_addr warnings/error
 #pragma warning(disable:4996) 
 
 #pragma comment(lib,"ws2_32.lib") //Required for WinSock
 #include <WinSock2.h> //For win sockets
-#include <string> //For std::string
-#include <iostream> //For std::cout, std::endl, std::cin.getline
+#include <string> 
+#include <iostream> 
 
 SOCKET Connection;//This client's connection to the server
 
@@ -39,7 +34,7 @@ int main()
 	
 	SOCKADDR_IN addr; //Address to be binded to our Connection socket
 	int sizeofaddr = sizeof(addr); //Need sizeofaddr for the connect function
-	addr.sin_addr.s_addr = inet_addr("127.0.0.1"); //Address = localhost (this pc)
+	addr.sin_addr.s_addr = inet_addr("127.0.0.1"); //Address
 	addr.sin_port = htons(1111); //Port = 1111
 	addr.sin_family = AF_INET; //IPv4 Socket
 
@@ -53,7 +48,7 @@ int main()
 	std::cout << "Connected to server: 127.0.0.1" << std::endl;
 	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)ClientThread, NULL, NULL, NULL); //Create the client thread that will receive any data that the server sends.
 
-	char buffer[256] = "balls"; //256 char buffer to send message
+	char buffer[256] = "asdasd"; //256 char buffer to send message
 	while (true)
 	{
 		std::cin.getline(buffer,sizeof(buffer)); //Get line if user presses enter and fill the buffer
